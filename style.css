@@ -1,0 +1,113 @@
+/* Identidade visual — Projeto ADA
+   Cores: vinho #760728 · dourado #B49821 · creme #F6F4F0
+   Fontes: Simple Serenity (títulos em caixa alta), Lucien Schoenschrift CAT (destaques manuscritos),
+           Sorts Mill Goudy (texto). As duas primeiras não são do Google Fonts: se os arquivos forem
+           colocados em /fonts (SimpleSerenity.woff2, LucienSchoenschriftCAT.woff2) passam a ser usados;
+           enquanto isso entram Cormorant Garamond e Pinyon Script como substitutas de estilo parecido. */
+@font-face{font-family:'Simple Serenity';src:local('Simple Serenity'),url('fonts/SimpleSerenity.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'Lucien Schoenschrift CAT';src:local('Lucien Schoenschrift CAT'),url('fonts/LucienSchoenschriftCAT.woff2') format('woff2');font-display:swap}
+
+:root{--vinho:#760728;--vinho-esc:#55051d;--ouro:#B49821;--ouro-esc:#7A6410;--creme:#F6F4F0;--creme-2:#EDE8DF;
+--bg:var(--creme);--sf:#FFFDFA;--ink:#2A0D16;--mut:#6B4A54;--ln:#DDD3C4;--ac:var(--vinho); --vml: var(--#F9D6D6);
+--nasc:#760728;--falec:#5E5560;--premio:#7A6410;--desc:#3F6656;--sfa:#760728;
+--f-corpo:'Sorts Mill Goudy',Georgia,serif;
+--f-titulo:'Lucien Schoenschrift CAT','Cormorant Garamond','Sorts Mill Goudy',serif;
+--f-script:'Lucien Schoenschrift CAT','Cormorant Garamond',cursive} 
+body{background:var(--bg);color:var(--ink);font-family:var(--f-corpo);font-size:1.05rem;line-height:1.55}
+h1,h2,h3,h4,.num{font-family:var(--f-titulo);font-weight:600}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:2px;box-shadow:0 0 0 5px var(--vinho)}
+.t-nasc{--c:var(--nasc)}.t-falec{--c:var(--falec)}.t-premio{--c:var(--premio)}.t-desc{--c:var(--desc)}
+
+/* Botões Bootstrap na paleta */
+.btn-outline-dark{--bs-btn-color:var(--vinho);--bs-btn-border-color:var(--vinho);--bs-btn-hover-bg:var(--vinho);--bs-btn-hover-border-color:var(--vinho);--bs-btn-hover-color:var(--creme);--bs-btn-active-bg:var(--vinho-esc);--bs-btn-active-border-color:var(--vinho-esc);--bs-btn-active-color:var(--creme);font-family:var(--f-corpo)}
+.btn-dark{--bs-btn-bg:var(--vinho);--bs-btn-border-color:var(--vinho);--bs-btn-hover-bg:var(--vinho-esc);--bs-btn-hover-border-color:var(--vinho-esc);--bs-btn-active-bg:var(--vinho-esc);--bs-btn-active-border-color:var(--vinho-esc);--bs-btn-color:var(--creme);--bs-btn-hover-color:var(--creme);font-family:var(--f-corpo)}
+.form-select,.form-control{font-family:var(--f-corpo);background-color:var(--sf);border-color:var(--ln);color:var(--ink)}
+.text-secondary{color:var(--mut)!important}
+
+/* Faixa de abertura em vinho, com moldura fina como na capa da identidade */
+.faixa{background:var(--vinho);color:var(--creme);position:relative}
+.faixa::after{content:"";position:absolute;inset:.9rem;border:1px solid rgba(246,244,240,.45);pointer-events:none}
+.topo{display:grid;gap:1.5rem;grid-template-columns:1fr;padding-block:3rem 2.25rem;position:relative}
+@media(min-width:992px){.topo{grid-template-columns:1.2fr 1fr;align-items:end}}
+.topo h1{font-family:var(--f-script);font-weight:500;font-size:clamp(2.0rem,5.5vw,4.4rem);line-height:1.05;margin:0 0 .75rem;color:var(--ouro)}
+.intro p{max-width:50ch;color:var(--sf);opacity:.92;font-size:1.2rem;margin:0}
+.hoje{background:var(--creme);color:var(--ink);border:1px solid var(--ouro);border-left:6px solid var(--ouro);border-radius:.5rem;padding:1rem 1.25rem}
+.hoje h2{font-size:1.15rem;margin:0 0 .6rem;color:var(--vinho);text-transform:uppercase;letter-spacing:.04em}
+.hoje .lista{display:flex;flex-direction:column;gap:.35rem}
+
+.barra{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin:1.75rem 0 .75rem}
+.nav-mes{display:flex;align-items:center;gap:.75rem}
+.mes-titulo{font-family:var(--f-script);font-weight:400;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--vinho);margin:0;min-width:11ch;text-transform:capitalize}
+.ir{display:flex;gap:.5rem}.ir select{width:auto}.ir input{width:6.5rem}
+.filtros{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.filtro{border:1.5px solid var(--c,var(--vinho));background:var(--sf);color:var(--ink);font-family:var(--f-corpo);border-radius:2rem;padding:.2rem .8rem;font-size:.95rem;display:flex;align-items:center;gap:.4rem}
+.filtro::before{content:"";width:.65rem;height:.65rem;border-radius:50%;background:var(--c,var(--vinho))}
+.filtro[aria-pressed=false]{opacity:.6;border-style:dashed}
+.filtro[aria-pressed=false]::before{background:transparent;border:1.5px solid var(--c,var(--vinho))}
+
+.semana,.grade{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.semana div{padding:.4rem .5rem;font-family:var(--f-titulo);font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--vinho);font-size:.9rem}
+.grade{border:1px solid var(--ouro);border-radius:.5rem;overflow:hidden;background:var(--ln);gap:1px}
+.cel{background:var(--sf);min-height:118px;padding:.35rem;display:flex;flex-direction:column;gap:3px;cursor:default;min-width:0}
+.cel.vazia{background:var(--creme-2)}
+.cel.tem{cursor:pointer}.cel.tem:hover{background:#FFF8E6}
+.num{font-size:1.05rem;font-weight:600;color:var(--mut);align-self:flex-start;min-width:1.7rem;height:1.7rem;line-height:1.7rem;text-align:center;border-radius:50%}
+.cel.hoje-d .num{background:var(--vinho);color:var(--creme);font-weight:700}
+.chip{--c:var(--ink);font-family:var(--f-corpo);text-align:left;border:0;border-left:4px solid var(--c);background:color-mix(in srgb,var(--c) 12%,#fff);color:var(--ink);border-radius:.25rem;padding:.1rem .4rem;font-size:.85rem;line-height:1.25;width:100%;overflow:hidden}
+.chip b{display:block;font-weight:700;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.chip small{display:block;color:var(--mut);font-size:.74rem}
+.chip:hover{background:color-mix(in srgb,var(--c) 22%,#fff)}
+.mais{border:0;background:none;color:var(--vinho);font-family:var(--f-corpo);font-size:.82rem;text-align:left;padding:0 .3rem;text-decoration:underline}
+.hoje .chip{font-size:.98rem}
+
+.marcos{margin-top:2rem;background:var(--sfa);border:1px solid var(--ouro);border-radius:.5rem;padding:1.25rem}
+.marcos h2{font-size:1.5rem;margin:0 0 .25rem;color:var(--ouro);text-transform:uppercase;letter-spacing:.04em}
+.marcos p{color:var(--creme);max-width:70ch}
+.marcos .lista{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.rodape{padding-block:2rem 3rem;color:var(--mut);font-size:.92rem}
+.rodape a{color:var(--vinho)}
+
+@media(max-width:575.98px){
+ .faixa::after{inset:.5rem}
+ .cel{min-height:66px;padding:.2rem;flex-direction:row;flex-wrap:wrap;align-content:flex-start}
+ .cel .num{flex:0 0 100%;font-size:.85rem}
+ .chip{width:.7rem;height:.7rem;padding:0;border:0;border-radius:50%;background:var(--c);font-size:0}
+ .chip *{display:none}
+ .mais{font-size:.7rem;padding:0}
+ .semana div{padding:.3rem 0;text-align:center;font-size:.75rem}
+}
+
+/* Modal */
+.modal-content{background:var(--creme);border:1px solid var(--ouro);font-family:var(--f-corpo)}
+.modal-header{background:var(--vinho);color:var(--creme);border-bottom:3px solid var(--ouro)}
+.modal-header .btn-close{filter:invert(1) grayscale(1) brightness(2)}
+.modal-title{font-family:var(--f-script);font-weight:400;font-size:1.9rem}
+.ev{border-left:6px solid var(--c);padding-left:1rem;margin-bottom:1rem}
+.ev .tipo{color:var(--c);font-weight:700;margin:0;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem}
+.ev h3{font-size:1.4rem;margin:0 0 .3rem}
+.perfil::after{content:"";display:block;clear:both}
+.perfil .foto{float:right;width:96px;height:auto;max-height:128px;object-fit:cover;margin:0 0 .75rem 1rem;border:2px solid var(--ouro);border-radius:.4rem;background:var(--creme-2);box-shadow:0 0 0 3px var(--creme),0 0 0 4px var(--vinho)}
+.perfil dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem 1rem;margin:0 0 1rem}
+.perfil dt{color:var(--vinho);font-weight:400;font-style:italic}.perfil dd{margin:0}
+.perfil h4{font-size:1.1rem;margin:1rem 0 .3rem;color:var(--vinho);text-transform:uppercase;letter-spacing:.04em}
+.perfil li span{color:var(--mut)}
+.perfil a{color:var(--vinho)}
+.accordion{--bs-accordion-bg:var(--creme);--bs-accordion-border-color:var(--ln);--bs-accordion-btn-focus-box-shadow:0 0 0 .25rem rgba(180,152,33,.45)}
+.accordion-button{font-family:var(--f-corpo);background:var(--creme);color:var(--ink)}
+.accordion-button:not(.collapsed){background:color-mix(in srgb,var(--c) 12%,#fff);color:var(--ink)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.imgcabecalho {
+        width: 240px;
+        max-width: 100%;
+        height: auto;
+
+}
+.faixa2 {
+        display: flex;
+        height: auto;
+
+       
+}
+
+
